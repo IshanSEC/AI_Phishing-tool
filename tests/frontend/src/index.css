@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #050816;
+    color: #f8fafc;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #03050d;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 191, 255, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 191, 255, 0.5);
+}
+
+/* Cyber Grid Background Wrapper */
+.cyber-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #050816;
+  overflow: hidden;
+  z-index: -20;
+}
+
+.cyber-grid {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  background-image: 
+    linear-gradient(to right, rgba(0, 191, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 191, 255, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: perspective(500px) rotateX(60deg);
+  animation: cyber-grid-scroll 24s linear infinite;
+  z-index: -10;
+}
+
+@keyframes cyber-grid-scroll {
+  0% {
+    transform: perspective(500px) rotateX(60deg) translateY(0);
+  }
+  100% {
+    transform: perspective(500px) rotateX(60deg) translateY(50px);
+  }
+}
+
+/* Floating Radial Glows */
+.cyber-glow-1 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 191, 255, 0.08) 0%, transparent 70%);
+  top: -10%;
+  left: -10%;
+  z-index: -5;
+  pointer-events: none;
+}
+
+.cyber-glow-2 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(239, 68, 68, 0.04) 0%, transparent 75%);
+  bottom: -5%;
+  right: -5%;
+  z-index: -5;
+  pointer-events: none;
+}
+
+/* Glassmorphism Cards */
+.glass-panel {
+  background: rgba(10, 15, 30, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border-radius: 12px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel-hover:hover {
+  border-color: rgba(0, 191, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.15);
+}
+
+/* Cyber Accent Buttons */
+.btn-cyber-primary {
+  background: linear-gradient(135deg, #00bfff 0%, #0080ff 100%);
+  color: #050816;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-cyber-primary:hover:not(:disabled) {
+  box-shadow: 0 0 18px rgba(0, 191, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+.btn-cyber-primary:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+/* Glowing text utilities */
+.glow-text-blue {
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+}
+
+.glow-text-danger {
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+}
+
+.glow-text-success {
+  text-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+}
+
+/* Animated Loading Skeleton */
+.skeleton-loading {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 200% 100%;
+  animation: loading-shimmer 1.5s infinite;
+}
+
+@keyframes loading-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
