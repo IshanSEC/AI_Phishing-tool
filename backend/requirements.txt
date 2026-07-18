@@ -1,0 +1,13 @@
+flask
+flask-cors
+pymongo
+pyjwt
+bcrypt
+scikit-learn
+pandas
+numpy
+joblib
+nltk
+reportlab
+matplotlib
+python-dotenv
